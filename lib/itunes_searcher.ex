@@ -1,5 +1,5 @@
 defmodule CircuitBreaking.ItunesSearcher do
-  def search_music(query) do
+  def search(query) do
     default_params
     |> Map.put(:term, query)
     |> make_request
@@ -7,13 +7,11 @@ defmodule CircuitBreaking.ItunesSearcher do
 
   defp make_request(params) do
     url = "#{search_url()}?#{URI.encode_query(params)}"
-    case HTTPoison.get(url) do
+    case HTTPoison.get(url, [], []) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         Poison.decode(body)
-      {:ok, %HTTPoison.Response{status_code: code, body: body}} ->
-        {:error, {code, body}}
-      {:error, %HTTPoison.Error{reason: reason}} ->
-        {:error, reason}
+      error ->
+        {:error, error}
     end
   end
 
@@ -26,7 +24,7 @@ defmodule CircuitBreaking.ItunesSearcher do
       limit: 3,
       country: "us",
       media: "music",
-      entity: "song,album",
+      entity: "album",
     }
   end
 end

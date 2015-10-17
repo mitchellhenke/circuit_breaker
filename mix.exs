@@ -30,6 +30,7 @@ defmodule CircuitBreaking.Mixfile do
     [
       {:fuse, git: "https://github.com/jlouis/fuse.git"},
       {:httpoison, "~> 0.6"},
+      {:poison, "~> 1.5"},
     ]
   end
 end

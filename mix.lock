@@ -3,6 +3,7 @@
   "hackney": {:hex, :hackney, "1.3.2"},
   "httpoison": {:hex, :httpoison, "0.7.4"},
   "idna": {:hex, :idna, "1.0.2"},
+  "poison": {:hex, :poison, "1.5.0"},
   "ssl_verify_hostname": {:hex, :ssl_verify_hostname, "1.0.5"},
   "timex": {:git, "https://github.com/bitwalker/timex.git", "659bf0300a8a4dda2b80a2c40265d6e51ca5afe2", []},
   "tzdata": {:hex, :tzdata, "0.5.3"}}

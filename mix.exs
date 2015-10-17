@@ -14,7 +14,7 @@ defmodule CircuitBreaking.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:logger]]
+    [applications: [:logger, :httpoison]]
   end
 
   # Dependencies can be Hex packages:
@@ -29,6 +29,7 @@ defmodule CircuitBreaking.Mixfile do
   defp deps do
     [
       {:fuse, git: "https://github.com/jlouis/fuse.git"},
+      {:httpoison, "~> 0.6"},
     ]
   end
 end

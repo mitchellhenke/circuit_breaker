@@ -23,7 +23,7 @@ defmodule CircuitBreaking.ItunesSearcher do
 
   defp default_params do
     %{
-      limit: 10,
+      limit: 3,
       country: "us",
       media: "music",
       entity: "song,album",

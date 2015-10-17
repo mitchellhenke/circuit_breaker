@@ -1,5 +1,4 @@
 defmodule CircuitBreaking.ItunesSearcher do
-  use HTTPoison.Base
   def search_music(query) do
     default_params
     |> Map.put(:term, query)
@@ -8,7 +7,7 @@ defmodule CircuitBreaking.ItunesSearcher do
 
   defp make_request(params) do
     url = "#{search_url()}?#{URI.encode_query(params)}"
-    case get(url) do
+    case HTTPoison.get(url) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         Poison.decode(body)
       {:ok, %HTTPoison.Response{status_code: code, body: body}} ->
